@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'ffaker'
+
+1000.times do
+  r = Random.new
+  publickey = ""
+
+  if r.rand(0..1) == 1
+    publickey = FFaker::Lorem.sentence
+  end
+
+  Patient.create(firstname: FFaker::Name.first_name, lastname: FFaker::Name.last_name, birthday: FFaker::Time.date, email: FFaker::Internet.email, publickey: publickey)
+end

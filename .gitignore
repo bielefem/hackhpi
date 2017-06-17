@@ -19,6 +19,7 @@
 .byebug_history
 
 .env
+.ruby-version
 .idea/.generators
 .idea/.rakeTasks
 .idea/hackhpi.iml

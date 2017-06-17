@@ -4,7 +4,12 @@ class PatientsController < ApplicationController
   # GET /patients
   # GET /patients.json
   def index
-    @patients = Patient.all
+    search = params[:search]
+    if search.present?
+      @patients = Patient.search_by_fullname(search)
+    else
+      @patients = Patient.order(:firstname, :lastname)
+    end
   end
 
   # GET /patients/1
