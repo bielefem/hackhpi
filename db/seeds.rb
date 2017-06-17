@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'ffaker'
+
+1000.times do
+  Patient.create(firstname: FFaker::Name:firstname, lastname: FFaker::Name:lastname, birthday: FFaker::Time:date, email: FFaker::Internet:email)
+end
