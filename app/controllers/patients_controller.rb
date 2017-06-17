@@ -7,8 +7,9 @@ class PatientsController < ApplicationController
     search = params[:search]
     if search.present?
       @patients = Patient.search_by_fullname(search)
+    else
+      @patients = Patient.all
     end
-    @patients = Patient.all
   end
 
   # GET /patients/1
