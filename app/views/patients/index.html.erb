@@ -2,7 +2,12 @@
 
 <h1>Patients</h1>
 
-<%= form_for :patient, url:
+<div class="search_controls">
+  <form action="/" method="get">
+    <input type="text" id="search" placeholder="Suche Patient" class="search_input">
+    <input type="submit">
+  </form>
+</div>
 
 <table>
   <thead>

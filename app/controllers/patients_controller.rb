@@ -4,6 +4,10 @@ class PatientsController < ApplicationController
   # GET /patients
   # GET /patients.json
   def index
+    search = params[:search]
+    if search.present?
+      @patients = Patient.search_by_fullname(search)
+    end
     @patients = Patient.all
   end
 
