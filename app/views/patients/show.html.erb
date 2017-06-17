@@ -3,5 +3,10 @@
 
 <%= render 'information', patient: @patient %>
 
-<%= link_to 'Edit', edit_patient_path(@patient) %> |
+<div class="btn btn-primary show-btn">
+<%= link_to 'Edit', edit_patient_path(@patient) %>
+</div>
+
+<div class="btn btn-primary show-btn">
 <%= link_to 'Back', patients_path %>
+</div>
