@@ -9,5 +9,5 @@
 require 'ffaker'
 
 1000.times do
-  Patient.create(firstname: FFaker::Name:firstname, lastname: FFaker::Name:lastname, birthday: FFaker::Time:date, email: FFaker::Internet:email)
+  Patient.create(firstname: FFaker::Name.first_name, lastname: FFaker::Name.last_name, birthday: FFaker::Time.date, email: FFaker::Internet.email)
 end
