@@ -1,35 +1,36 @@
-<div class="jumbotron">
+<div class="row well">
+      <div class="col-6">
+        <p>
+          <strong>Firstname:</strong>
+          <%= patient.firstname %>
+        </p>
+      </div>
 
-  <div class="firstname">
-    <p>
-      <strong>Firstname:</strong>
-      <%= patient.firstname %>
-    </p>
-  </div>
+      <div class="col-6">
+        <p>
+          <strong>Lastname:</strong>
+          <%= patient.lastname %>
+        </p>
+      </div>
 
-  <div class="lastname">
-    <p>
-      <strong>Lastname:</strong>
-      <%= patient.lastname %>
-    </p>
-  </div>
+      <div class="col-12">
+        <p>
+          <strong>Birthday:</strong>
+          <%= patient.birthday %>
+        </p>
+      </div>
 
-  <div class="birthday">
-    <p>
-      <strong>Birthday:</strong>
-      <%= patient.birthday %>
-    </p>
-  </div>
+      <div class="col-12">
+        <p>
+          <strong>Email:</strong>
+          <%= patient.email %>
+        </p>
+      </div>
 
-  <div class="email">
-    <p>
-      <strong>Email:</strong>
-      <%= patient.email %>
-    </p>
-  </div>
-
-  <p>
-    <strong>Publickey:</strong>
-    <%= patient.publickey %>
-  </p>
+      <div class="col-12">
+        <p>
+          <strong>Publickey:</strong>
+          <%= patient.publickey %>
+        </p>
+      </div>
 </div>

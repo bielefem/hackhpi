@@ -8,7 +8,7 @@ class PatientsController < ApplicationController
     if search.present?
       @patients = Patient.search_by_fullname(search)
     else
-      @patients = Patient.all
+      @patients = Patient.order(:firstname, :lastname)
     end
   end
 

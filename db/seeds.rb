@@ -9,5 +9,12 @@
 require 'ffaker'
 
 1000.times do
-  Patient.create(firstname: FFaker::Name.first_name, lastname: FFaker::Name.last_name, birthday: FFaker::Time.date, email: FFaker::Internet.email)
+  r = Random.new
+  publickey = ""
+
+  if r.rand(0..1) == 1
+    publickey = FFaker::Lorem.sentence
+  end
+
+  Patient.create(firstname: FFaker::Name.first_name, lastname: FFaker::Name.last_name, birthday: FFaker::Time.date, email: FFaker::Internet.email, publickey: publickey)
 end

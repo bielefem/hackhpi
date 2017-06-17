@@ -3,42 +3,58 @@
 </div>
 
 <div class="row">
-  <div class="search_controls">
-    <form action="/" method="get" class="form-inline">
-      <input type="text" class="form-control w-75" name="search" placeholder="Suche nach einem Patienten...">
-      <button type="submit" class="btn btn-primary w-25">Submit</button>
-    </form>
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <div class="search_controls">
+      <form action="/" method="get" class="form-inline">
+        <div class="input-group">
+          <input type="text" class="form-control" name="search" placeholder="Suche nach Patienten...">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">Suchen</button>
+          </span>
+        </div><!-- /input-group -->
+      </form>
+    </div>
   </div>
+  <div class="col-md-4"></div>
 </div>
-<div class="well">Test</div>
-<div class="row patients-list">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Vorname</th>
-        <th>Nachname</th>
-        <th>Geburtstag</th>
-        <th>Email</th>
-        <th>Schlüssel</th>
-        <th>Aktionen</th>
-      </tr>
-    </thead>
 
-    <tbody>
-      <% @patients.each_with_index do |patient, index| %>
+<div class="row patients-list">
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
         <tr>
-          <th scope="row"><%= index + 1 %></th>
-          <td><%= patient.firstname %></td>
-          <td><%= patient.lastname %></td>
-          <td><%= patient.birthday %></td>
-          <td><%= patient.email %></td>
-          <td><%= patient.publickey %></td>
-          <td><%= link_to 'Show', patient %> | <%= link_to 'Edit', edit_patient_path(patient) %> | <%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <th>#</th>
+          <th>Vorname</th>
+          <th>Nachname</th>
+          <th>Geburtstag</th>
+          <th>Email</th>
+          <th>Schlüssel</th>
+          <th>Aktionen</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+
+      <tbody>
+        <% @patients.each_with_index do |patient, index| %>
+          <tr class="<% if has_public_key?(patient) == false %>no-key<% end %>">
+            <th scope="row"><%= index + 1 %></th>
+            <td><%= patient.firstname %></td>
+            <td><%= patient.lastname %></td>
+            <td><%= patient.birthday %></td>
+            <td><%= patient.email %></td>
+            <td>
+              <% if has_public_key?(patient) %>
+                Vorhanden
+              <% else %>
+                  Nein
+              <% end %>
+            </td>
+            <td><%= link_to 'Show', patient %> | <%= link_to 'Edit', edit_patient_path(patient) %> | <%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
 <br>
 
