@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'jquery-rails'
+gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 # Read Enviroment Variablen
 gem 'dotenv'
 # User Authentification

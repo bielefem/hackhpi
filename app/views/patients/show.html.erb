@@ -1,29 +1,45 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Firstname:</strong>
-  <%= @patient.firstname %>
-</p>
+<!-- <div class="patient_container">
 
-<p>
-  <strong>Lastname:</strong>
-  <%= @patient.lastname %>
-</p>
+  <div class="firstname">
+    <p>
+      <strong>Firstname:</strong>
+      <%= @patient.firstname %>
+    </p>
+  </div>
 
-<p>
-  <strong>Birthday:</strong>
-  <%= @patient.birthday %>
-</p>
+  <div class="lastname">
+    <p>
+      <strong>Lastname:</strong>
+      <%= @patient.lastname %>
+    </p>
+  </div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @patient.email %>
-</p>
+  <div class="birthday">
+    <p>
+      <strong>Birthday:</strong>
+      <%= @patient.birthday %>
+    </p>
+  </div>
 
-<p>
-  <strong>Publickey:</strong>
-  <%= @patient.publickey %>
-</p>
+  <div class="email">
+    <p>
+      <strong>Email:</strong>
+      <%= @patient.email %>
+    </p>
+  </div>
+
+  <div class="publickey">
+
+    <p>
+      <strong>Publickey:</strong>
+      <%= @patient.publickey %>
+    </p>
+  </div>
+</div> -->
+
+<%= render 'information', patient: @patient %>
 
 <%= link_to 'Edit', edit_patient_path(@patient) %> |
 <%= link_to 'Back', patients_path %>
