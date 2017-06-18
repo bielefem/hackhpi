@@ -15,6 +15,12 @@ class PatientsController < ApplicationController
   # GET /patients/1
   # GET /patients/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.json{
+        render :json => @patient.to_json({:include => {:medical_attachments => {:methods => :file_url}}})
+      }
+    end
   end
 
   # GET /patients/new
@@ -33,6 +39,11 @@ class PatientsController < ApplicationController
 
     respond_to do |format|
       if @patient.save
+        if params[:medical_attachments]
+          params[:medical_attachments].each do |medical_attachment|
+            @patient.medical_attachments.create(file: medical_attachment)
+          end
+        end
         format.html { redirect_to @patient, notice: 'Patient was successfully created.' }
         format.json { render :show, status: :created, location: @patient }
       else
