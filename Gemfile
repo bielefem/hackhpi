@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'bootstrap_form'
+gem 'devise-bootstrap-views'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 # Read Enviroment Variablen
