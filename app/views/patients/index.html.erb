@@ -36,6 +36,7 @@
 
       <tbody>
         <% @patients.each_with_index do |patient, index| %>
+         <% cache patient do %>
           <tr class="<% if has_public_key?(patient) == false %>no-key<% end %>">
             <th scope="row"><%= index + 1 %></th>
             <td><%= patient.firstname %></td>
@@ -51,6 +52,7 @@
             </td>
             <td><%= link_to 'Show', patient %> | <%= link_to 'Edit', edit_patient_path(patient) %> | <%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
+          <% end %>
         <% end %>
       </tbody>
     </table>
