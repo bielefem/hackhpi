@@ -33,6 +33,11 @@ class PatientsController < ApplicationController
 
     respond_to do |format|
       if @patient.save
+        if params[:medical_attachments]
+          params[:medical_attachments].each do |medical_attachment|
+            @patient.medical_attachments.create(file: medical_attachment)
+          end
+        end
         format.html { redirect_to @patient, notice: 'Patient was successfully created.' }
         format.json { render :show, status: :created, location: @patient }
       else

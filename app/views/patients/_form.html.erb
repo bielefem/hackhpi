@@ -1,4 +1,4 @@
-<%= bootstrap_form_for(patient) do |form| %>
+<%= bootstrap_form_for(patient, html: { multipart: true }) do |form| %>
   <% if patient.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
@@ -30,6 +30,8 @@
   <div class="field">
     <%= form.text_area :publickey, id: :patient_publickey %>
   </div>
+
+    <%= file_field_tag "medical_attachments[]", type: :file, multiple: true %>
 
   <div class="actions">
     <%= form.submit %>
