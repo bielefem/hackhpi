@@ -15,6 +15,12 @@ class PatientsController < ApplicationController
   # GET /patients/1
   # GET /patients/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.json{
+        render :json => @patient.to_json(:include => :medical_attachments)
+      }
+    end
   end
 
   # GET /patients/new
