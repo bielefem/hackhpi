@@ -1,24 +1,15 @@
-# README
+#Welcome to Hackhpi GesundheitscloudChallange
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+to getting started install ruby 2.4.0, postgresql
 
-Things you may want to cover:
+than run the following commands:
 
-* Ruby version
+`gem install bundler`
+`bundle`
+`rails db:setup`
+`rails db:migrate`
+`rails db:seed`
 
-* System dependencies
+and the you are ready to enjoy the app with
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+`rails s`

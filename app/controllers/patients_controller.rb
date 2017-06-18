@@ -1,5 +1,6 @@
 class PatientsController < ApplicationController
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_employee!, except: [:show]
 
   # GET /patients
   # GET /patients.json
@@ -58,6 +59,11 @@ class PatientsController < ApplicationController
   def update
     respond_to do |format|
       if @patient.update(patient_params)
+          if params[:medical_attachments]
+          params[:medical_attachments].each do |medical_attachment|
+            @patient.medical_attachments.create(file: medical_attachment)
+          end
+        end
         format.html { redirect_to @patient, notice: 'Patient was successfully updated.' }
         format.json { render :show, status: :ok, location: @patient }
       else
