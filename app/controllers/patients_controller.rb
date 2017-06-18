@@ -18,7 +18,7 @@ class PatientsController < ApplicationController
     respond_to do |format|
       format.html
       format.json{
-        render :json => @patient.to_json(:include => :medical_attachments)
+        render :json => @patient.to_json({:include => {:medical_attachments => {:methods => :file_url}}})
       }
     end
   end
