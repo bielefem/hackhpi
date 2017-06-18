@@ -1,5 +1,5 @@
 class QrController < ApplicationController
   def code
-    @qrcode = RQRCode::QRCode.new("https://www.youtube.com/watch?v=oHg5SJYRHA0")
+    @qrcode = RQRCode::QRCode.new("#{{ssid:'AltEichenHospital', ip:'192.162.18.23', key:'adsipnqwiprnfipqwnfipq'}.to_json}")
   end
 end
